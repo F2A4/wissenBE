@@ -1,12 +1,11 @@
 package daw.wissenBE.domain;
 
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table
-public class Video {
+public class Video{
 
     @Id
     @SequenceGenerator(
@@ -18,40 +17,62 @@ public class Video {
             strategy = GenerationType.SEQUENCE,
             generator = "video_sequence"
     )
-    private Long id;
+    private Long video_id;
+    private String picture;
+    private String link;
     private String name;
     private String length;
-    private String valid_for;
-    private Date release_date;
+    private LocalDate release;
+    private String tags;
     private String description;
-
 
     public Video() {
     }
 
-    public Video(Long id, String name, String length, String valid_for) {
-        this.id = id;
+    public Video(Long video_id, String picture, String link, String name, String length, LocalDate release, String tags, String description) {
+        this.video_id = video_id;
+        this.picture = picture;
+        this.link = link;
         this.name = name;
         this.length = length;
-        this.valid_for = valid_for;
-        this.release_date = release_date;
+        this.release = release;
+        this.tags = tags;
         this.description = description;
     }
 
-    public Video(String name, String length, String valid_for) {
+    public Video(String picture, String link, String name, String length, LocalDate release, String tags, String description) {
+        this.picture = picture;
+        this.link = link;
         this.name = name;
         this.length = length;
-        this.valid_for = valid_for;
-        this.release_date = release_date;
+        this.release = release;
+        this.tags = tags;
         this.description = description;
     }
 
-    public Long getId() {
-        return id;
+
+    public Long getVideo_id() {
+        return video_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setVideo_id(Long video_id) {
+        this.video_id = video_id;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getName() {
@@ -70,20 +91,20 @@ public class Video {
         this.length = length;
     }
 
-    public String getValid_for() {
-        return valid_for;
+    public LocalDate getRelease() {
+        return release;
     }
 
-    public void setValid_for(String valid) {
-        this.valid_for = valid;
+    public void setRelease(LocalDate release) {
+        this.release = release;
     }
 
-    public Date getRelease_date() {
-        return release_date;
+    public String getTags() {
+        return tags;
     }
 
-    public void setRelease_date(Date release_date) {
-        this.release_date = release_date;
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 
     public String getDescription() {
@@ -97,11 +118,13 @@ public class Video {
     @Override
     public String toString() {
         return "Video{" +
-                "id=" + id +
+                "video_id=" + video_id +
+                ", picture='" + picture + '\'' +
+                ", link='" + link + '\'' +
                 ", name='" + name + '\'' +
                 ", length='" + length + '\'' +
-                ", valid_for='" + valid_for + '\'' +
-                ", release_date=" + release_date +
+                ", release='" + release + '\'' +
+                ", tags='" + tags + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

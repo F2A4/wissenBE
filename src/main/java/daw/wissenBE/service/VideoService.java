@@ -57,12 +57,6 @@ public class VideoService {
             video.setName(name);
         }
 
-        if (valid_for != null &&
-                valid_for.length() > 0 &&
-                !Objects.equals(video.getValid_for(), valid_for)) {
-            video.setValid_for(valid_for);
-        }
-
         if (description != null &&
                 description.length() > 0 &&
                 !Objects.equals(video.getDescription(), description)) {

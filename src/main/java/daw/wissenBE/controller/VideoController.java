@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "daw/video")
+@RequestMapping( "/video")
 public class VideoController {
 
     private final VideoService videoService;
@@ -18,28 +18,28 @@ public class VideoController {
         this.videoService = videoService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Video> getVideo(){
         return videoService.getVideos();
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public void registerNewVideo(@RequestBody Video video){
         videoService.addNewVideo(video);
     }
 
-    @DeleteMapping(path = "{videoId}")
+    @DeleteMapping("/delete/{videoId}")
     public void deleteVideo(
             @PathVariable("videoId") Long videoId){
         videoService.deleteVideo(videoId);
     }
 
-    @PutMapping(path = "{videoId}")
+    @PutMapping( "/update/{videoId}")
     public void updateVideo(
             @PathVariable("videoId") Long videoId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) String valid_for,
+            @RequestParam(required = false) String tags,
             @RequestParam(required = false) String description) {
-        videoService.updateVideo(videoId, name, valid_for, description);
+        videoService.updateVideo(videoId, name, tags, description);
     }
 }

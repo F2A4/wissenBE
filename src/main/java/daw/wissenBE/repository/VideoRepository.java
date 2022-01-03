@@ -14,5 +14,4 @@ public interface VideoRepository
 
     @Query("Select s FROM Video s Where s.name = ?1")
     Optional<Video> findVideoByName(String name);
-
 }
