@@ -18,8 +18,8 @@ public class VideoConfig {
             VideoRepository repository) {
         return args -> {
             Video fortnite = new Video(
-                    "cringe",
-                    "https://www.google.com/imgres?",
+                    "https://i.postimg.cc/9MVQ9Nfn/Download.jpg",
+                    "hi",
                     "Fortnite",
                     "20:20",
                     LocalDate.of(2021,Month.JANUARY,16),
@@ -28,8 +28,8 @@ public class VideoConfig {
 
             );
             Video CoD = new Video(
-                    "hello",
-                    "https://www.google.com/imgres?",
+                    "https://i.postimg.cc/9MVQ9Nfn/Download.jpg",
+                    "hii",
                     "CoD",
                     "15:20",
                     LocalDate.of(2021,Month.JANUARY,12),
